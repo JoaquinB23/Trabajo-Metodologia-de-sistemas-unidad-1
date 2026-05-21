@@ -1,0 +1,148 @@
+/* =========================================================
+   1. PALETA DE COLORES DEL LOGO
+   ========================================================= */
+:root {
+    /* Modifica estos colores con los códigos HEX exactos de tu logo */
+    --logo-primario: #0B2545;  /* Azul oscuro institucional */
+    --logo-acento: #F97316;    /* Naranja vibrante */
+    --logo-terciario: #14B8A6; /* Turquesa/Verde agua */
+}
+
+/* =========================================================
+   2. FORZAR COLORES EN BOOTSTRAP
+   ========================================================= */
+/* Primario (Azul) */
+.text-primary { color: var(--logo-primario) !important; }
+.bg-primary { background-color: var(--logo-primario) !important; }
+.btn-primary {
+    background-color: var(--logo-primario) !important;
+    border-color: var(--logo-primario) !important;
+    color: #ffffff !important;
+}
+.btn-primary:hover { opacity: 0.9; }
+.bg-primary-subtle { background-color: rgba(11, 37, 69, 0.1) !important; }
+.border-primary-subtle { border-color: rgba(11, 37, 69, 0.2) !important; }
+
+/* Acento (Naranja) */
+.text-warning { color: var(--logo-acento) !important; }
+.bg-warning { background-color: var(--logo-acento) !important; }
+.btn-warning {
+    background-color: var(--logo-acento) !important;
+    border-color: var(--logo-acento) !important;
+    color: #ffffff !important;
+}
+.btn-warning:hover { opacity: 0.9; }
+
+/* Terciario (Turquesa) */
+.text-info { color: var(--logo-terciario) !important; }
+.bg-info { background-color: var(--logo-terciario) !important; }
+
+/* Barras de progreso */
+.progress-bar.bg-primary { background-color: var(--logo-primario) !important; }
+.progress-bar.bg-info { background-color: var(--logo-terciario) !important; }
+.progress-bar.bg-warning { background-color: var(--logo-acento) !important; }
+
+
+/* =========================================================
+   3. ESTILOS GENERALES Y HERO
+   ========================================================= */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding-top: 85px; /* Compensa la barra de navegación fija */
+    background-color: #ffffff;
+}
+
+.material-symbols-outlined { vertical-align: middle; }
+
+.hero-section {
+    min-height: calc(100vh - 85px);
+    padding: 3rem 0;
+}
+
+.hero-image-wrapper {
+    aspect-ratio: 4/3;
+    background-color: #f8fafc;
+}
+
+
+/* =========================================================
+   4. EFECTOS HOVER (Tarjetas, Botones y Menú)
+   ========================================================= */
+/* Botones */
+.custom-btn-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+/* Tarjetas */
+.custom-hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.custom-hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+}
+
+.custom-card-img {
+    height: 240px;
+    background-color: #f8fafc;
+}
+
+/* Enlaces del Navbar */
+.navbar-nav .nav-item .nav-link {
+    color: #4b5563; /* Gris oscuro para reposo */
+    position: relative;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: var(--logo-acento) !important;
+}
+
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--logo-acento);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-item .nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   5. REPARACIÓN DEL CARRUSEL BOOTSTRAP
+   ========================================================= */
+#carouselInstalaciones {
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Oscurece la imagen ligeramente sin bloquear los clicks de los botones */
+.filter-darken {
+    filter: brightness(0.7);
+}
+
+/* Asegura que los botones de control queden siempre encima de las imágenes */
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10;
+}
+
+.shadow-text {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
