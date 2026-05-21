@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro Educativo - Educar para Transformar</title>
-    
-    <link rel="icon" href="img/logo.ico" type="image/png">
-    
+    <link rel="icon" href="img/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100">
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="110">
 
     <nav id="mainNavbar" class="navbar navbar-expand-lg bg-white fixed-top shadow-sm py-3">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
-                <img src="img/logo.ico" alt="Logo Educar para Transformar" width="50" height="50" class="object-fit-contain">
-                <span class="text-primary d-none d-sm-inline">Educar para <span class="text-warning">Transformar</span></span>
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+                <img src="img/logo.png" alt="Logo Fundación" width="46" height="46" class="img-fluid object-fit-contain">
+                <span class="text-primary fs-5 d-none d-sm-inline">Educar para <span class="text-warning">Transformar</span></span>
             </a>
             
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto fw-medium">
-                    <li class="nav-item"><a class="nav-link" href="#niveles">Niveles Educativos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#idiomas">Idiomas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#instalaciones">Instalaciones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#niveles">Niveles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#idiomas">Idiomas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#instalaciones">Instalaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
                 </ul>
-                <a href="#contacto" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm custom-btn-hover">Apertura Marzo 2027</a>
+                
+                <div class="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+                    <a href="login.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold custom-btn-hover d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined fs-6">login</span> Ingresar
+                    </a>
+                    <a href="preinscripcion.html" class="btn btn-warning rounded-pill px-4 fw-bold shadow-sm custom-btn-hover">
+                        Inscripciones 2027
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section d-flex align-items-center">
+    <section class="hero-section d-flex align-items-center bg-white py-5">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center text-lg-start">
@@ -47,57 +54,55 @@
                         Centro Educativo <br> <span class="text-primary">Educar para Transformar</span>
                     </h1>
                     <p class="lead text-secondary mb-5">
-                        Inspiramos y empoderamos a nuestros alumnos para ser agentes de cambio innovadores y líderes globales.
+                        Inspiramos y empoderamos a nuestros alumnos para ser agentes de cambio innovadores y líderes globales conscientes de su entorno.
                     </p>
-                    <a href="#contacto" class="btn btn-warning text-white btn-lg rounded-pill px-5 fw-bold custom-btn-hover shadow">Apertura Marzo 2027</a>
+                    <a href="preinscripcion.html" class="btn btn-warning text-white btn-lg rounded-pill px-5 fw-bold custom-btn-hover shadow">Inscribirme Ahora</a>
                 </div>
-                
                 <div class="col-lg-6">
                     <div class="hero-image-wrapper rounded-4 shadow-lg overflow-hidden">
-                        <img src="img/Niños felices.jpg" alt="Estudiantes felices" class="img-fluid w-100 h-100 object-fit-cover">
+                        <img src="img/Niños felices.jpg" alt="Estudiantes del Centro Educativo" class="img-fluid w-100 h-100 object-fit-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Aqui comienza la sección informativa -->
 
     <section id="niveles" class="py-5 bg-light">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bold text-dark">Nuestros Niveles Educativos</h2>
-                <p class="text-secondary">Formación integral desde los primeros pasos hasta la universidad.</p>
+                <h2 class="fw-bold text-dark display-6">Nuestros Niveles Educativos</h2>
+                <p class="text-secondary">Acompañamiento pedagógico de excelencia y proyección de futuro.</p>
             </div>
-
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm custom-hover-card rounded-4 overflow-hidden">
-                        <img src="img/jardin.jpg" class="card-img-top custom-card-img object-fit-cover" alt="Nivel Inicial">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card overflow-hidden">
+                        <img src="img/jardin.jpg" class="card-img-top custom-card-img" alt="Nivel Inicial">
                         <div class="card-body p-4">
                             <span class="badge bg-success-subtle text-success mb-2 px-2 py-1 border border-success-subtle">Jornada Extendida</span>
                             <h4 class="card-title fw-bold text-dark">Nivel Inicial</h4>
-                            <p class="card-text text-secondary">Estimulación temprana y desarrollo emocional seguro en entornos lúdicos.</p>
+                            <p class="card-text text-secondary">Estimulación cognitiva, desarrollo psicomotriz y vinculación segura en espacios lúdicos de vanguardia.</p>
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm custom-hover-card rounded-4 overflow-hidden">
-                        <img src="img/ninosEstudiando.jpg" class="card-img-top custom-card-img object-fit-cover" alt="Nivel Primario">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card overflow-hidden">
+                        <img src="img/ninosEstudiando.jpg" class="card-img-top custom-card-img" alt="Nivel Primario">
                         <div class="card-body p-4">
                             <span class="badge bg-success-subtle text-success mb-2 px-2 py-1 border border-success-subtle">Jornada Extendida</span>
                             <h4 class="card-title fw-bold text-dark">Nivel Primario</h4>
-                            <p class="card-text text-secondary">Pensamiento crítico y metodologías activas para bases sólidas.</p>
+                            <p class="card-text text-secondary">Fomento del pensamiento lógico-matemático, indagación científica y alfabetización digital crítica.</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm custom-hover-card rounded-4 overflow-hidden">
-                        <img src="img/secundaria.jpg" class="card-img-top custom-card-img object-fit-cover" alt="Nivel Secundario">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card overflow-hidden">
+                        <img src="img/secundaria.jpg" class="card-img-top custom-card-img" alt="Nivel Secundario">
                         <div class="card-body p-4">
                             <span class="badge bg-success-subtle text-success mb-2 px-2 py-1 border border-success-subtle">Jornada Extendida</span>
                             <h4 class="card-title fw-bold text-dark">Nivel Secundario</h4>
-                            <p class="card-text text-secondary">Orientación pre-universitaria y proyectos de impacto tecnológico global.</p>
+                            <p class="card-text text-secondary">Orientación científico-tecnológica pre-universitaria con desarrollo de proyectos reales de impacto social.</p>
                         </div>
                     </div>
                 </div>
@@ -105,51 +110,32 @@
         </div>
     </section>
 
-    <section id="idiomas" class="py-5">
+    <section id="idiomas" class="py-5 bg-white">
         <div class="container py-5">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold text-dark mb-4">Propuesta Trilingüe</h2>
-                    <p class="lead text-secondary">Preparamos a nuestros estudiantes para un mundo interconectado integrando tres lenguas globales.</p>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-dark display-6">Idiomas</h2>
+                <p class="text-secondary">Inmersión lingüística avanzada y certificaciones de alcance global.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card p-4 text-center">
+                        <div class="mb-3"><span class="material-symbols-outlined display-5 text-primary">language</span></div>
+                        <h4 class="fw-bold text-dark">Inglés de Alto Impacto</h4>
+                        <p class="text-secondary small">Currícula bilingüe integrada diseñada para la obtención de certificaciones internacionales Cambridge (FCE y CAE).</p>
+                    </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="bg-light p-4 p-md-5 rounded-4 shadow-sm border border-light-subtle">
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold text-dark d-flex align-items-center gap-2">
-                                    <span class="material-symbols-outlined text-primary">language</span> Inglés
-                                </span>
-                                <span class="small text-primary fw-medium">Intensivo e Inmersivo</span>
-                            </div>
-                            <div class="progress" style="height: 12px;">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold text-dark d-flex align-items-center gap-2">
-                                    <span class="material-symbols-outlined text-info">public</span> Portugués
-                                </span>
-                                <span class="small text-info fw-medium">Regional Integrado</span>
-                            </div>
-                            <div class="progress" style="height: 12px;">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="fw-bold text-dark d-flex align-items-center gap-2">
-                                    <span class="material-symbols-outlined text-warning">translate</span> Francés
-                                </span>
-                                <span class="small text-warning fw-medium">Linguística Global</span>
-                            </div>
-                            <div class="progress" style="height: 12px;">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card p-4 text-center">
+                        <div class="mb-3"><span class="material-symbols-outlined display-5 text-info">public</span></div>
+                        <h4 class="fw-bold text-dark">Portugués Regional</h4>
+                        <p class="text-secondary small">Orientación hacia el bloque comercial estratégico y de intercambio cultural con preparación directa para el examen CELPE-Bras.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm custom-hover-card p-4 text-center">
+                        <div class="mb-3"><span class="material-symbols-outlined display-5 text-warning">translate</span></div>
+                        <h4 class="fw-bold text-dark">Francés</h4>
+                        <p class="text-secondary small">Desarrollo de competencias lingüísticas avanzadas y de expresión analítica bajo los estándares internacionales oficiales DELF.</p>
                     </div>
                 </div>
             </div>
@@ -158,11 +144,10 @@
 
     <section id="instalaciones" class="py-5 bg-dark text-white">
         <div class="container py-5 text-center">
-            <h2 class="fw-bold mb-3">Nuestras Instalaciones y Deportes</h2>
-            <p class="text-white-50 mb-5">Espacios diseñados para potenciar el talento deportivo y tecnológico.</p>
+            <h2 class="fw-bold mb-3 display-6">Infraestructura y Deportes</h2>
+            <p class="text-white-50 mb-5">Entornos que potencian las habilidades tecnológicas, científicas y psicofísicas.</p>
 
-            <div id="carouselInstalaciones" class="carousel slide carousel-fade mx-auto shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel" style="max-width: 900px;">
-                
+            <div id="carouselInstalaciones" class="carousel slide carousel-fade mx-auto" data-bs-ride="carousel" style="max-width: 900px;">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="0" class="active"></button>
                     <button type="button" data-bs-target="#carouselInstalaciones" data-bs-slide-to="1"></button>
@@ -171,57 +156,35 @@
                 </div>
 
                 <div class="carousel-inner" style="aspect-ratio: 16/9;">
-                    
                     <div class="carousel-item active h-100">
-                        <img src="img/Pileta natacion.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pileta de Natación">
+                        <img src="img/Pileta natacion.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pileta Olímpica Climatizada">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold text-white shadow-text">Pileta de Natación</h3>
-                            <p class="shadow-text">Complejo acuático climatizado.</p>
+                            <h3 class="fw-bold text-white shadow-text">Complejo Acuático Climatizado</h3>
+                            <p class="shadow-text">Entrenamiento integral y natación de nivel deportivo olímpico.</p>
                         </div>
                     </div>
-
                     <div class="carousel-item h-100">
-                        <img src="img/cancha de football.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Canchas de fútbol">
+                        <img src="img/cancha de football.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Predio de Canchas Integradas">
                         <div class="carousel-caption d-none d-md-block">
                             <h3 class="fw-bold text-white shadow-text">Canchas de Fútbol</h3>
-                            <p class="shadow-text">Predio deportivo de césped sintético.</p>
+                            <p class="shadow-text">Predios acondicionados con césped de alta resistencia para torneos intercolegiales.</p>
                         </div>
                     </div>
-
                     <div class="carousel-item h-100">
-                        <img src="img/Laboratorio quimica.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Laboratorios">
+                        <img src="img/atletismo.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pista Reglamentaria de Atletismo">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold text-white shadow-text">Laboratorios Avanzados</h3>
-                            <p class="shadow-text">Física, química y salas de computación.</p>
+                            <h3 class="fw-bold text-white shadow-text">Pista de Atletismo de Alta Competencia</h3>
+                            <p class="shadow-text">Suelo amortiguado bajo normativas internacionales para velocidad y resistencia.</p>
                         </div>
                     </div>
-
                     <div class="carousel-item h-100">
-                        <img src="img/atletismo.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pista de Atletismo">
+                        <img src="img/laboratorio computacion.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Aulas de Ciencia y Robótica">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold text-white shadow-text">Pista de Atletismo</h3>
-                            <p class="shadow-text">Pista con medidas reglamentarias e infraestructura completa.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item h-100">
-                        <img src="img/gimnacio.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pista de Atletismo">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold text-white shadow-text">Pista de Atletismo</h3>
-                            <p class="shadow-text">Pista con medidas reglamentarias e infraestructura completa.</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item h-100">
-                        <img src="img/karate.jpg" class="d-block w-100 h-100 object-fit-cover filter-darken" alt="Pista de Atletismo">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="fw-bold text-white shadow-text">Pista de Atletismo</h3>
-                            <p class="shadow-text">Pista con medidas reglamentarias e infraestructura completa.</p>
+                            <h3 class="fw-bold text-white shadow-text">Laboratorios de Robótica y Computación</h3>
+                            <p class="shadow-text">Equipamiento informático de última generación para modelado 3D y programación.</p>
                         </div>
                     </div>
                 </div>
-
-
 
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselInstalaciones" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -232,34 +195,32 @@
                     <span class="visually-hidden">Siguiente</span>
                 </button>
             </div>
-            
         </div>
     </section>
 
     <section id="servicios" class="py-5 bg-light">
         <div class="container py-5 text-center">
-            <h2 class="fw-bold text-dark mb-5">Servicios Adicionales</h2>
-            
+            <h2 class="fw-bold text-dark mb-5 display-6">Servicios de Cuidado Integral</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-4 col-sm-6">
                     <div class="bg-white p-4 rounded-4 shadow-sm border border-light-subtle h-100 custom-hover-card">
                         <span class="material-symbols-outlined display-4 text-warning mb-3">restaurant</span>
-                        <h4 class="fw-bold text-dark">Comedor</h4>
-                        <p class="text-secondary small mb-0">Menús saludables supervisados por nutricionistas.</p>
+                        <h4 class="fw-bold text-dark">Comedor Nutricional</h4>
+                        <p class="text-secondary small mb-0">Planes alimentarios balanceados diseñados y supervisados por especialistas de la salud escolar.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="bg-white p-4 rounded-4 shadow-sm border border-light-subtle h-100 custom-hover-card">
                         <span class="material-symbols-outlined display-4 text-info mb-3">medical_services</span>
-                        <h4 class="fw-bold text-dark">Enfermería</h4>
-                        <p class="text-secondary small mb-0">Atención médica primaria permanente en el predio.</p>
+                        <h4 class="fw-bold text-dark">Enfermería Permanente</h4>
+                        <p class="text-secondary small mb-0">Atención médica primaria inmediata y control preventivo constante dentro del campus.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="bg-white p-4 rounded-4 shadow-sm border border-light-subtle h-100 custom-hover-card">
                         <span class="material-symbols-outlined display-4 text-primary mb-3">directions_bus</span>
-                        <h4 class="fw-bold text-dark">Micros Escolares</h4>
-                        <p class="text-secondary small mb-0">Flota segura y moderna para traslados punto a punto.</p>
+                        <h4 class="fw-bold text-dark">Micros Escolares Seguros</h4>
+                        <p class="text-secondary small mb-0">Flota con geolocalización y choferes matriculados para la cobertura de rutas de traslado punto a punto.</p>
                     </div>
                 </div>
             </div>
@@ -269,23 +230,44 @@
     <footer id="contacto" class="bg-primary text-white py-5">
         <div class="container py-4">
             <div class="row g-4 align-items-center">
+                
                 <div class="col-lg-5 text-center text-lg-start">
-                    <img src="img/logo.ico" alt="Logo Footer" width="60" class="mb-3 bg-white rounded-circle p-1">
-                    <h3 class="fw-bold mb-3">Educar para <span class="text-warning">Transformar</span></h3>
-                    <p class="text-white-50">Institución de gestión privada comprometida con la excelencia y la innovación de la educación.</p>
+                    <img src="img/logo.png" alt="Logo de la Fundación" width="70" class="mb-3 p-1 object-fit-contain bg-white rounded-circle">
+                    <h3 class="fw-bold mb-2">Educar para <span class="text-warning">Transformar</span></h3>
+                    <p class="text-white-50 mb-4">Modelo pedagógico innovador de gestión privada comprometido con la excelencia técnica y humana.</p>
+                    
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#" class="social-icon" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-4 offset-lg-3">
-                    <h5 class="fw-bold mb-3 text-warning">Contacto en Resistencia</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-2 d-flex align-items-center gap-2"><span class="material-symbols-outlined fs-5">location_on</span> Resistencia, Chaco, AR.</li>
-                        <li class="mb-2 d-flex align-items-center gap-2"><span class="material-symbols-outlined fs-5">call</span> +54 (362) 445-XXXX</li>
-                        <li class="mb-2 d-flex align-items-center gap-2"><span class="material-symbols-outlined fs-5">mail</span> info@educarparatransformar.edu.ar</li>
+                
+                <div class="col-lg-4 offset-lg-3 mt-5 mt-lg-0 text-center text-lg-start">
+                    <h5 class="fw-bold mb-4 text-warning">Contacto de Sede</h5>
+                    <ul class="list-unstyled text-white-50 mb-0">
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start gap-3">
+                            <span class="material-symbols-outlined fs-4 text-info">location_on</span> 
+                            <span>Resistencia, Provincia del Chaco, AR.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start gap-3">
+                            <span class="material-symbols-outlined fs-4 text-info">call</span> 
+                            <span>+54 (362) 445-XXXX</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center justify-content-center justify-content-lg-start gap-3">
+                            <span class="material-symbols-outlined fs-4 text-info">mail</span> 
+                            <span>info@educarparatransformar.edu.ar</span>
+                        </li>
                     </ul>
                 </div>
+
             </div>
-            <hr class="my-4 border-white-50">
-            <div class="text-center text-white-50 small">
-                &copy; 2026 Centro Educativo "Educar para Transformar". Apertura Marzo 2027.
+            
+            <hr class="my-5 border-white-50">
+            <div class="text-center text-white-50 small d-flex flex-column flex-md-row justify-content-between">
+                <span>&copy; 2026 Centro Educativo "Educar para Transformar". Todos los derechos reservados.</span>
+                <span class="mt-2 mt-md-0">Proyección de Apertura Oficial: Marzo 2027.</span>
             </div>
         </div>
     </footer>

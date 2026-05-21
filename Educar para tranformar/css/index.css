@@ -1,148 +1,308 @@
-/* =========================================================
-   1. PALETA DE COLORES DEL LOGO
-   ========================================================= */
 :root {
-    /* Modifica estos colores con los códigos HEX exactos de tu logo */
-    --logo-primario: #0B2545;  /* Azul oscuro institucional */
-    --logo-acento: #F97316;    /* Naranja vibrante */
-    --logo-terciario: #14B8A6; /* Turquesa/Verde agua */
+    --logo-primario: #0B2545;
+    --logo-acento: #F97316;
+    --logo-terciario: #14B8A6;
+    --logo-docente: #6d28d9;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* =========================================================
-   2. FORZAR COLORES EN BOOTSTRAP
-   ========================================================= */
-/* Primario (Azul) */
-.text-primary { color: var(--logo-primario) !important; }
-.bg-primary { background-color: var(--logo-primario) !important; }
+/* Base general */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    padding-top: 88px;
+}
+
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+.text-primary {
+    color: var(--logo-primario) !important;
+}
+
+.bg-primary {
+    background-color: var(--logo-primario) !important;
+}
+
+.text-warning {
+    color: var(--logo-acento) !important;
+}
+
+.bg-warning {
+    background-color: var(--logo-acento) !important;
+}
+
+.text-info {
+    color: var(--logo-terciario) !important;
+}
+
+.bg-info {
+    background-color: var(--logo-terciario) !important;
+}
+
+/* Botones */
 .btn-primary {
     background-color: var(--logo-primario) !important;
     border-color: var(--logo-primario) !important;
-    color: #ffffff !important;
+    transition: var(--transition);
+    color: white !important;
 }
-.btn-primary:hover { opacity: 0.9; }
-.bg-primary-subtle { background-color: rgba(11, 37, 69, 0.1) !important; }
-.border-primary-subtle { border-color: rgba(11, 37, 69, 0.2) !important; }
 
-/* Acento (Naranja) */
-.text-warning { color: var(--logo-acento) !important; }
-.bg-warning { background-color: var(--logo-acento) !important; }
 .btn-warning {
     background-color: var(--logo-acento) !important;
     border-color: var(--logo-acento) !important;
     color: #ffffff !important;
-}
-.btn-warning:hover { opacity: 0.9; }
-
-/* Terciario (Turquesa) */
-.text-info { color: var(--logo-terciario) !important; }
-.bg-info { background-color: var(--logo-terciario) !important; }
-
-/* Barras de progreso */
-.progress-bar.bg-primary { background-color: var(--logo-primario) !important; }
-.progress-bar.bg-info { background-color: var(--logo-terciario) !important; }
-.progress-bar.bg-warning { background-color: var(--logo-acento) !important; }
-
-
-/* =========================================================
-   3. ESTILOS GENERALES Y HERO
-   ========================================================= */
-body {
-    font-family: system-ui, -apple-system, sans-serif;
-    padding-top: 85px; /* Compensa la barra de navegación fija */
-    background-color: #ffffff;
+    transition: var(--transition);
 }
 
-.material-symbols-outlined { vertical-align: middle; }
-
-.hero-section {
-    min-height: calc(100vh - 85px);
-    padding: 3rem 0;
+.btn-outline-primary {
+    color: var(--logo-primario);
+    border-color: var(--logo-primario);
 }
 
-.hero-image-wrapper {
-    aspect-ratio: 4/3;
-    background-color: #f8fafc;
+.btn-outline-primary:hover {
+    background-color: var(--logo-primario);
+    color: white;
 }
 
-
-/* =========================================================
-   4. EFECTOS HOVER (Tarjetas, Botones y Menú)
-   ========================================================= */
-/* Botones */
-.custom-btn-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 .custom-btn-hover:hover {
     transform: translateY(-2px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    box-shadow: var(--shadow-md) !important;
+    filter: brightness(1.1);
 }
 
-/* Tarjetas */
-.custom-hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.custom-hover-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+/* Navegación */
+.navbar {
+    transition: var(--transition);
 }
 
-.custom-card-img {
-    height: 240px;
-    background-color: #f8fafc;
-}
-
-/* Enlaces del Navbar */
-.navbar-nav .nav-item .nav-link {
-    color: #4b5563; /* Gris oscuro para reposo */
+.navbar-nav .nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
     position: relative;
-    transition: color 0.3s ease;
-    padding-bottom: 5px;
+    padding: 0.5rem 0;
+    margin: 0 1rem;
+    transition: var(--transition);
 }
 
-.navbar-nav .nav-item .nav-link:hover {
+.navbar-nav .nav-link:hover {
     color: var(--logo-acento) !important;
 }
 
-.navbar-nav .nav-item .nav-link::after {
+.navbar-nav .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: 0;
+    height: 3px;
+    bottom: -2px;
     left: 50%;
     background-color: var(--logo-acento);
-    transition: all 0.3s ease;
+    transition: var(--transition);
     transform: translateX(-50%);
+    border-radius: 2px;
 }
 
-.navbar-nav .nav-item .nav-link:hover::after {
+.navbar-nav .nav-link:hover::after {
     width: 100%;
 }
 
-
-/* =========================================================
-   5. REPARACIÓN DEL CARRUSEL BOOTSTRAP
-   ========================================================= */
-#carouselInstalaciones {
-    border-radius: 1rem;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+/* Tarjetas y animaciones */
+.custom-hover-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1rem !important;
+    transition: var(--transition);
 }
 
-.object-fit-cover {
+.custom-hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg) !important;
+    border-color: color-mix(in srgb, var(--logo-primario) 20%, transparent) !important;
+}
+
+.custom-card-img {
+    height: 220px;
     object-fit: cover;
 }
 
-/* Oscurece la imagen ligeramente sin bloquear los clicks de los botones */
+#carouselInstalaciones {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
 .filter-darken {
-    filter: brightness(0.7);
+    filter: brightness(0.65);
+    transition: transform 0.5s ease;
 }
 
-/* Asegura que los botones de control queden siempre encima de las imágenes */
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 10;
+.carousel-item:hover .filter-darken {
+    transform: scale(1.02);
 }
 
-.shadow-text {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+/* Login y formularios */
+.login-body {
+    padding-top: 0 !important;
+    background-color: var(--bg-light);
+}
+
+.login-container {
+    min-height: 100vh;
+}
+
+.login-form-side {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.login-box {
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem;
+}
+
+.login-brand-side {
+    transition: background-image 0.5s ease-in-out;
+}
+
+.login-input-group .input-group-text {
+    background-color: transparent;
+    border-right: none;
+}
+
+.login-input-group .form-control {
+    border-left: none;
+}
+
+.login-input-group .form-control:focus {
+    box-shadow: none;
+    border-color: #dee2e6;
+}
+
+.login-input-group:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(11, 37, 69, 0.15);
+    border-radius: 0.375rem;
+}
+
+.login-input-group:focus-within .input-group-text,
+.login-input-group:focus-within .form-control {
+    border-color: var(--logo-primario);
+}
+
+.role-card {
+    border: 2px solid #e2e8f0;
+    color: var(--text-muted);
+    background-color: transparent;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.role-card:hover {
+    border-color: var(--logo-primario);
+    color: var(--logo-primario);
+    transform: translateY(-3px);
+}
+
+.btn-check:checked + .role-card {
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+    transform: translateY(-3px);
+}
+
+#roleAlumno:checked + .role-card {
+    border-color: var(--logo-primario) !important;
+    color: var(--logo-primario) !important;
+    background-color: rgba(11, 37, 69, 0.08);
+}
+
+#roleAlumno:checked + .role-card .material-symbols-outlined {
+    color: var(--logo-primario);
+}
+
+#roleDocente:checked + .role-card {
+    border-color: var(--logo-docente) !important;
+    color: var(--logo-docente) !important;
+    background-color: rgba(109, 40, 217, 0.08);
+}
+
+#roleDocente:checked + .role-card .material-symbols-outlined {
+    color: var(--logo-docente);
+}
+
+#roleFamilia:checked + .role-card {
+    border-color: var(--logo-acento) !important;
+    color: var(--logo-acento) !important;
+    background-color: rgba(249, 115, 22, 0.08);
+}
+
+#roleFamilia:checked + .role-card .material-symbols-outlined {
+    color: var(--logo-acento);
+}
+
+.sub-role-card {
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.btn-check:checked + .sub-role-card {
+    border-color: var(--logo-terciario) !important;
+    background-color: rgba(20, 184, 166, 0.1);
+    color: var(--logo-primario);
+    font-weight: bold;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--logo-primario);
+    color: #ffffff;
+}
+
+.site-footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #ffffff;
+}
+
+.site-footer .footer-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.site-footer p,
+.site-footer li {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.site-footer .social-icon:hover {
+    background-color: var(--logo-acento);
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
 }
