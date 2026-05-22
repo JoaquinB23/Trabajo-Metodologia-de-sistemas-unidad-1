@@ -3,6 +3,7 @@
     --logo-acento: #F97316;
     --logo-terciario: #14B8A6;
     --logo-docente: #6d28d9;
+    --logo-acento2: #0ea5e9;
     --bg-light: #f8fafc;
     --text-dark: #1e293b;
     --text-muted: #64748b;
@@ -16,8 +17,37 @@
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--text-dark);
+    background-image: radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 28%), linear-gradient(180deg, #ffffff 0%, #f0f7fb 100%);
     background-color: #ffffff;
     padding-top: 88px;
+}
+
+/* Fondo sutil para la página principal */
+
+.index-bg {
+    background-image: url('img/ninosEstudiando.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    background-color: rgba(11, 37, 69, 0.02);
+    background-blend-mode: overlay;
+}
+
+.index-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 37, 69, 0.06);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.index-bg > * {
+    position: relative;
+    z-index: 1;
 }
 
 .material-symbols-outlined {
@@ -50,15 +80,15 @@ body {
 
 /* Botones */
 .btn-primary {
-    background-color: var(--logo-primario) !important;
-    border-color: var(--logo-primario) !important;
+    background-image: linear-gradient(135deg, var(--logo-primario), #13346a) !important;
+    border-color: transparent !important;
     transition: var(--transition);
     color: white !important;
 }
 
 .btn-warning {
-    background-color: var(--logo-acento) !important;
-    border-color: var(--logo-acento) !important;
+    background-image: linear-gradient(135deg, var(--logo-acento), #fb8c23) !important;
+    border-color: transparent !important;
     color: #ffffff !important;
     transition: var(--transition);
 }
@@ -76,7 +106,7 @@ body {
 .custom-btn-hover:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md) !important;
-    filter: brightness(1.1);
+    filter: brightness(1.08);
 }
 
 /* Navegación */
@@ -114,10 +144,28 @@ body {
     width: 100%;
 }
 
-/* Tarjetas y animaciones */
+/* Secciones más coloridas */
+.hero-section {
+    background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.12), transparent 35%), #ffffff;
+}
+
+.hero-image-wrapper {
+    border: 2px solid rgba(20, 184, 166, 0.18);
+}
+
+.badge {
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.bg-light {
+    background-color: #f8fbff !important;
+}
+
 .custom-hover-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0 !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    border: 1px solid rgba(14, 184, 166, 0.15) !important;
     border-radius: 1rem !important;
     transition: var(--transition);
 }
@@ -125,12 +173,26 @@ body {
 .custom-hover-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg) !important;
-    border-color: color-mix(in srgb, var(--logo-primario) 20%, transparent) !important;
+    border-color: rgba(20, 184, 166, 0.4) !important;
 }
 
 .custom-card-img {
     height: 220px;
     object-fit: cover;
+}
+
+.section-heading {
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    width: 90px;
+    height: 4px;
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--logo-acento), var(--logo-terciario));
 }
 
 #carouselInstalaciones {
@@ -148,10 +210,80 @@ body {
     transform: scale(1.02);
 }
 
+#instalaciones .sport-card {
+    transition: var(--transition);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+#instalaciones .sport-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 30px rgba(20, 184, 233, 0.16);
+}
+
+#instalaciones .sport-card:hover .material-symbols-outlined,
+#instalaciones .sport-card:hover h6 {
+    color: inherit;
+}
+
+#instalaciones .sport-card.sport-deportes:hover {
+    background-color: rgba(13, 110, 253, 0.12);
+    border-color: rgba(13, 110, 253, 0.25);
+    color: #0b2a59;
+}
+
+#instalaciones .sport-card.sport-atletismo:hover {
+    background-color: rgba(14, 184, 233, 0.12);
+    border-color: rgba(14, 184, 233, 0.25);
+    color: var(--logo-acento2);
+}
+
+#instalaciones .sport-card.sport-natacion:hover {
+    background-color: rgba(255, 193, 7, 0.12);
+    border-color: rgba(255, 193, 7, 0.25);
+    color: #b76d00;
+}
+
+#instalaciones .sport-card.sport-futbol:hover {
+    background-color: rgba(25, 135, 84, 0.14);
+    border-color: rgba(25, 135, 84, 0.28);
+    color: #1f7a58;
+}
+
+#instalaciones .sport-card.sport-artes:hover {
+    background-color: rgba(109, 40, 217, 0.12);
+    border-color: rgba(109, 40, 217, 0.28);
+    color: var(--logo-docente);
+}
+
+#instalaciones .sport-card.sport-voleibol:hover {
+    background-color: rgba(13, 110, 253, 0.12);
+    border-color: rgba(13, 110, 253, 0.25);
+    color: #0d6efd;
+}
+
+#instalaciones .sport-card.sport-danza:hover {
+    background-color: rgba(13, 202, 240, 0.12);
+    border-color: rgba(13, 202, 240, 0.25);
+    color: #0dcaf0;
+}
+
+#instalaciones .sport-card.sport-basquet:hover {
+    background-color: rgba(255, 193, 7, 0.12);
+    border-color: rgba(255, 193, 7, 0.25);
+    color: #d97706;
+}
+
+#instalaciones .sport-card.sport-ajedrez:hover {
+    background-color: rgba(108, 117, 125, 0.12);
+    border-color: rgba(108, 117, 125, 0.25);
+    color: #495057;
+}
+
 /* Login y formularios */
 .login-body {
     padding-top: 0 !important;
-    background-color: var(--bg-light);
+    background-image: radial-gradient(circle at top center, rgba(20, 184, 166, 0.12), transparent 30%), linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
 }
 
 .login-container {
@@ -159,21 +291,30 @@ body {
 }
 
 .login-form-side {
-    background-color: #ffffff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.96));
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    border-right: 1px solid rgba(14, 184, 166, 0.12);
 }
 
 .login-box {
     width: 100%;
-    max-width: 480px;
-    padding: 2rem;
+    max-width: 500px;
+    padding: 2.25rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 55px rgba(11, 37, 69, 0.08);
+    border: 1px solid rgba(20, 184, 166, 0.12);
 }
 
 .login-brand-side {
     transition: background-image 0.5s ease-in-out;
+}
+
+.login-box h2,
+.login-box p {
+    color: var(--logo-primario);
 }
 
 .login-input-group .input-group-text {
@@ -183,6 +324,7 @@ body {
 
 .login-input-group .form-control {
     border-left: none;
+    background-color: rgba(248, 250, 252, 0.95);
 }
 
 .login-input-group .form-control:focus {
@@ -191,7 +333,7 @@ body {
 }
 
 .login-input-group:focus-within {
-    box-shadow: 0 0 0 0.25rem rgba(11, 37, 69, 0.15);
+    box-shadow: 0 0 0 0.25rem rgba(20, 184, 166, 0.15);
     border-radius: 0.375rem;
 }
 
@@ -203,26 +345,26 @@ body {
 .role-card {
     border: 2px solid #e2e8f0;
     color: var(--text-muted);
-    background-color: transparent;
+    background-color: rgba(248, 250, 252, 0.95);
     transition: var(--transition);
     cursor: pointer;
 }
 
 .role-card:hover {
-    border-color: var(--logo-primario);
-    color: var(--logo-primario);
+    border-color: var(--logo-acento2);
+    color: var(--logo-acento2);
     transform: translateY(-3px);
 }
 
 .btn-check:checked + .role-card {
-    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
     transform: translateY(-3px);
 }
 
 #roleAlumno:checked + .role-card {
-    border-color: var(--logo-primario) !important;
+    background-color: rgba(14, 184, 233, 0.15);
+    border-color: var(--logo-acento2) !important;
     color: var(--logo-primario) !important;
-    background-color: rgba(11, 37, 69, 0.08);
+    box-shadow: 0 4px 18px rgba(14, 184, 233, 0.18);
 }
 
 #roleAlumno:checked + .role-card .material-symbols-outlined {
@@ -230,9 +372,10 @@ body {
 }
 
 #roleDocente:checked + .role-card {
+    background-color: rgba(109, 40, 217, 0.15);
     border-color: var(--logo-docente) !important;
     color: var(--logo-docente) !important;
-    background-color: rgba(109, 40, 217, 0.08);
+    box-shadow: 0 4px 18px rgba(109, 40, 217, 0.18);
 }
 
 #roleDocente:checked + .role-card .material-symbols-outlined {
@@ -240,9 +383,10 @@ body {
 }
 
 #roleFamilia:checked + .role-card {
+    background-color: rgba(249, 115, 22, 0.15);
     border-color: var(--logo-acento) !important;
     color: var(--logo-acento) !important;
-    background-color: rgba(249, 115, 22, 0.08);
+    box-shadow: 0 4px 18px rgba(249, 115, 22, 0.18);
 }
 
 #roleFamilia:checked + .role-card .material-symbols-outlined {
@@ -253,6 +397,7 @@ body {
     border: 1px solid #e2e8f0;
     padding: 0.5rem;
     font-size: 0.85rem;
+    background-color: #ffffff;
 }
 
 .btn-check:checked + .sub-role-card {
@@ -262,6 +407,23 @@ body {
     font-weight: bold;
 }
 
+.form-control,
+.form-select {
+    background-color: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(14, 184, 166, 0.15);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(20, 184, 166, 0.45);
+    box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.14);
+}
+
+.alert-warning {
+    background-image: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 146, 60, 0.18));
+    border-color: rgba(251, 146, 60, 0.25);
+}
+
 /* Footer */
 .site-footer {
     background: var(--logo-primario);
@@ -269,7 +431,7 @@ body {
 }
 
 .site-footer a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
 }
 
@@ -285,17 +447,17 @@ body {
 
 .site-footer p,
 .site-footer li {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .site-footer .social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.16);
     transition: var(--transition);
     overflow: hidden;
 }
