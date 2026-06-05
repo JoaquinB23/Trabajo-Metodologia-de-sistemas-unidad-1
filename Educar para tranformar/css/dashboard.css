@@ -1,0 +1,27 @@
+/* Dashboard Layout */
+.sidebar {
+    min-height: 100vh;
+    background: var(--logo-primario);
+    color: white;
+}
+.sidebar .nav-link {
+    color: rgba(255,255,255,0.7);
+    padding: 1rem 1.5rem;
+    transition: var(--transition);
+}
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-left: 4px solid var(--logo-acento);
+}
+.main-content {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+.card-dash {
+    border-radius: 1.5rem !important; /* Esquinas gorditas */
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+.card-dash:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
