@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Alumno</title>
+</head>
+<body>
+    <h1>Bienvenido, Alumno</h1>
+    <script>
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (!usuario) window.location.href = 'login.html';
+        document.querySelector('h1').innerText = `Bienvenido, ${usuario.nombre}`;
+    </script>
+</body>
+</html>

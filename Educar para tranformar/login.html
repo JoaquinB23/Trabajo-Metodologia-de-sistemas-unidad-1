@@ -111,7 +111,7 @@
             </div>
             
             <div id="loginImagePanel" class="col-lg-6 login-brand-side d-none d-lg-flex align-items-center justify-content-center" 
-                 style="background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(11, 37, 69, 0.75)), url('img/ninosEstudiando.jpg') center/cover no-repeat;">
+                style="background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(11, 37, 69, 0.75)), url('img/ninosEstudiando.jpg') center/cover no-repeat;">
                 
                 <div class="text-center p-5 z-2" style="max-width: 500px;">
                     <img src="img/logo.png" alt="Ilustración" class="img-fluid mb-4 bg-white rounded-circle p-2" style="max-height: 120px;">
@@ -154,6 +154,43 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const dni      = document.getElementById('usuario').value;
+    const password = document.getElementById('password').value;
+    const rol      = document.querySelector('input[name="userRole"]:checked').value;
+    const nivel    = document.querySelector('input[name="userLevel"]:checked')?.value || null;
+
+    try {
+    const res = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dni, password, rol, nivel }),
+    });
+
+    const data = await res.json();
+
+    if (!data.ok) {
+      alert(data.error); // "Credenciales inválidas"
+        return;
+    }
+
+    // Guardás el usuario en localStorage
+    localStorage.setItem('usuario', JSON.stringify(data.data.usuario));
+
+    // Redirigís según el rol
+    if (rol === 'alumno')  window.location.href = 'dashboard-alumno.html';
+    if (rol === 'docente') window.location.href = 'dashboard-docente.html';
+    if (rol === 'familia') window.location.href = 'dashboard-familia.html';
+
+    } catch (err) {
+    alert('No se pudo conectar con el servidor');
+    }
+});
     </script>
 
     <footer class="site-footer py-5">
