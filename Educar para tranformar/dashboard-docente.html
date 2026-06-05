@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Docente</title>
+</head>
+<body>
+    <h1>Bienvenido, Docente</h1>
+    <script>
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        
+        // Si no hay usuario, redirige al login
+        if (!usuario) {
+            window.location.href = 'login.html';
+        } else {
+            // Personaliza el saludo con el nombre del docente
+            document.querySelector('h1').innerText = `Bienvenido, Prof. ${usuario.nombre}`;
+        }
+    </script>
+</body>
+</html>
