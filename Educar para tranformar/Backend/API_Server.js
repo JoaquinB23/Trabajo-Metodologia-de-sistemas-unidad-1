@@ -2,9 +2,14 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Configuración robusta de CORS
+app.use(cors({
+    origin: '*', // Permite peticiones desde cualquier lugar
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use(express.static('../'));
 
