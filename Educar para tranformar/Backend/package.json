@@ -1,9 +1,11 @@
 {
-  "name": "Educar Para Transformar API",
+  "name": "educar-para-transformar-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "API_Server.js",
+  "type": "module",
   "scripts": {
+    "start": "node API_Server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
