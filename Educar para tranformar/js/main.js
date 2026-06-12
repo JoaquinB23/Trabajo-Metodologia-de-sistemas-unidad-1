@@ -81,44 +81,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. ENVÍO DEL FORMULARIO DE LOGIN (Conexión a la API) ---
-    const loginForm = document.getElementById('loginForm'); // Asegúrate de que tu etiqueta <form> tenga id="loginForm"
+// --- 4. ENVÍO DEL FORMULARIO DE LOGIN (Conexión a la API) ---
+    const loginForm = document.getElementById('loginForm'); 
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Evita que la página se recargue sola
+            e.preventDefault(); 
 
-            // Capturamos los datos ingresados por el usuario
-            const email = document.getElementById('email').value;
+            // Capturamos los datos. Usamos la variable 'dni' porque es lo que espera tu backend
+            const dni = document.getElementById('email').value; // Mantenemos el ID de tu input HTML
             const password = document.getElementById('password').value;
             const rol = document.querySelector('.role-selector:checked')?.value;
 
             try {
-                // Usamos ruta relativa '/login' para que funcione en local y en Render automáticamente
-                const response = await fetch('/login', {
+                // Apuntamos a la ruta exacta de tu API_Server.js
+                const response = await fetch('/api/auth/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email, password, rol })
+                    body: JSON.stringify({ dni, password, rol }) // Enviamos dni en vez de email
                 });
 
-                const data = await response.json();
+                const resData = await response.json();
 
-                if (response.ok) {
-                    // Guardamos la sesión en el localStorage (Nombre y Rol)
-                    localStorage.setItem('usuario', JSON.stringify({ nombre: data.nombre, rol: rol }));
+                if (response.ok && resData.ok) {
+                    // Tu backend devuelve la info dentro de resData.data.usuario
+                    const usuario = resData.data.usuario;
+                    localStorage.setItem('usuario', JSON.stringify(usuario));
 
-                    // Redirección inteligente según el rol seleccionado
+                    // Redirección inteligente
                     if (rol === 'alumno') {
                         window.location.href = 'dashboard-alumno.html';
                     } else if (rol === 'docente') {
                         window.location.href = 'dashboard-docente.html';
                     } else {
-                        window.location.href = 'dashboard.html'; // Fallback genérico
+                        window.location.href = 'dashboard.html';
                     }
                 } else {
-                    // Si el servidor responde con un error de credenciales
-                    alert(data.mensaje || 'Error al iniciar sesión. Verifica tus datos.');
+                    // Si las credenciales fallan, mostramos el error del backend
+                    alert(resData.error || 'Credenciales inválidas');
                 }
             } catch (error) {
                 console.error('Error en la conexión:', error);
