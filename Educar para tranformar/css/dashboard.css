@@ -25,3 +25,43 @@
     transition: var(--transition);
 }
 .card-dash:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+/* =========================================
+   ESTILOS PARA EL PORTAL DE FAMILIAS
+   ========================================= */
+.sidebar-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    font-weight: 700;
+}
+
+.avatar-hijo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animaciones de entrada en cascada para los datos */
+.dash-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: dashFadeUp 0.6s ease forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+@keyframes dashFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
