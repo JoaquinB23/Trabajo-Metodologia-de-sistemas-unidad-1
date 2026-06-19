@@ -245,23 +245,31 @@ app.delete("/api/inscripciones/:id", (req, res) => {
   ok(res, { mensaje: "Inscripción eliminada", inscripcion: eliminada });
 });
 
+const sesionesActivas = new Set();
+
 // usuarios de prueba (después reemplazás con DB)
 const usuarios = [
   { id: 1, dni: "12345678", password: "1234", rol: "alumno", nivel: "primaria", nombre: "Lucas" },
   { id: 2, dni: "87654321", password: "1234", rol: "docente", nivel: "secundaria", nombre: "Ana" },
+  { id: 3, dni: "11111111", password: "1234", rol: "familia",  nombre: "Jose" }
 ];
 
 app.post("/api/auth/login", (req, res) => {
   const { dni, password, rol, nivel } = req.body;
 
-const usuario = usuarios.find(
-  (u) => u.dni === dni && u.password === password && u.rol === rol && u.nivel === nivel
-);
+  const usuario = usuarios.find((u) => {
+    if (u.dni !== dni || u.password !== password || u.rol !== rol) return false;
+    if (rol === "familia") return true; // tutores no tienen nivel
+    return u.nivel === nivel;
+  });
 
   if (!usuario) return fail(res, "Credenciales inválidas", 401);
 
-  // Por ahora sin JWT, mandamos el usuario directo
-  // (después agregás jwt.sign acá)
+  if (sesionesActivas.has(dni)) {
+    return fail(res, "Este usuario ya tiene una sesión activa", 409);
+  }
+
+  sesionesActivas.add(dni);
   ok(res, { usuario, mensaje: "Login exitoso" });
 });
 
