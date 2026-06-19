@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000 || 5500;
 
 // Configuración robusta de CORS
 app.use(cors({
@@ -254,9 +254,9 @@ const usuarios = [
 app.post("/api/auth/login", (req, res) => {
   const { dni, password, rol, nivel } = req.body;
 
-  const usuario = usuarios.find(
-    (u) => u.dni === dni && u.password === password && u.rol === rol
-  );
+const usuario = usuarios.find(
+  (u) => u.dni === dni && u.password === password && u.rol === rol && u.nivel === nivel
+);
 
   if (!usuario) return fail(res, "Credenciales inválidas", 401);
 
