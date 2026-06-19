@@ -22,7 +22,8 @@
    Estilos Base y Globales
    ---------------------------------------------------------- */
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    /* font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; */
+    font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     background-color: #f8fafc; /* Unificado desde dos declaraciones previas */
     padding-top: 88px;
@@ -337,3 +338,48 @@ body {
     90% { opacity: 1; }
     100% { transform: translateY(-1500px); opacity: 0; }
 }
+
+
+
+/* - ---------------------------------------------------------
+   Ajuste para portada index.html (Hero Section)
+   ---------------------------------------------------------- */
+
+   /* =========================================
+   NUEVA PORTADA PRINCIPAL (SPLIT HERO)
+   ========================================= */
+
+/* =========================================
+   NUEVA PORTADA PRINCIPAL (SPLIT HERO MEJORADO)
+   ========================================= */
+/* =========================================
+   NUEVA PORTADA PRINCIPAL (FORMATO LIMITADO Y MÁXIMO CONTRASTE)
+   ========================================= */
+.hero-section-split {
+    position: relative;
+    min-height: 65vh; /* Altura más limitada y elegante (no ocupa toda la pantalla) */
+    display: flex;
+    align-items: center;
+    padding-top: 80px; /* Margen superior para respetar el Navbar fijo */
+    /* Gradiente optimizado: Máxima opacidad en las letras (0.98) y caída limpia hacia la derecha */
+    background: linear-gradient(to right, 
+        rgba(248, 249, 250, 0.98) 0%,   /* Casi sólido blanco/gris para que resalten las letras */
+        rgba(248, 249, 250, 0.92) 45%,  /* Mantiene un fondo limpio y ultra legible bajo el texto */
+        rgba(248, 249, 250, 0.30) 65%,  /* Transición rápida de difuminado */
+        rgba(248, 249, 250, 0) 100%    /* Mitad derecha 100% descubierta para la foto */
+    ), url('../img/portada1.jpg') center/cover no-repeat;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Línea sutil de cierre */
+}
+
+/* Ajuste para pantallas chicas (Celulares) */
+@media (max-width: 991.98px) {
+    .hero-section-split {
+        min-height: 55vh;
+        background: linear-gradient(to bottom, 
+            rgba(248, 249, 250, 0.98) 0%,   /* Protege el texto arriba */
+            rgba(248, 249, 250, 0.85) 60%,  
+            rgba(248, 249, 250, 0) 100%    /* Deja ver la foto abajo */
+        ), url('../img/portada1.jpg') center/cover no-repeat;
+    }
+}
+
