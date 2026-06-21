@@ -76,11 +76,11 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Nombre Completo del Alumno</label>
-                            <input type="text" class="form-control bg-light" required>
+                            <input type="text" name="nombreAlumno" class="form-control bg-light" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Nivel al que ingresa</label>
-                            <select class="form-select bg-light" required>
+                            <select name="nivelIngresa" class="form-select bg-light" required>
                                 <option value="" selected disabled>Seleccione un nivel...</option>
                                 <option value="inicial">Nivel Inicial</option>
                                 <option value="primario">Nivel Primario</option>
@@ -89,15 +89,15 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <label class="form-label text-secondary fw-bold small">Edad</label>
-                            <input type="number" class="form-control bg-light" required>
+                            <input type="number" name="edadAlumno" class="form-control bg-light" required>
                         </div>
                         <div class="col-md-5 col-6">
                             <label class="form-label text-secondary fw-bold small">CUIL / DNI</label>
-                            <input type="text" class="form-control bg-light" placeholder="Sin guiones" required>
+                            <input type="text" name="dniAlumno" class="form-control bg-light" placeholder="Sin guiones" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label text-secondary fw-bold small">Tipo de Sangre</label>
-                            <select class="form-select bg-light">
+                            <select name="tipoSangre" class="form-select bg-light">
                                 <option value="A+">A+</option><option value="A-">A-</option>
                                 <option value="B+">B+</option><option value="B-">B-</option>
                                 <option value="AB+">AB+</option><option value="AB-">AB-</option>
@@ -106,11 +106,11 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Dirección / Domicilio Real</label>
-                            <input type="text" class="form-control bg-light" required>
+                            <input type="text" name="domicilioAlumno" class="form-control bg-light" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Teléfono de Emergencia</label>
-                            <input type="tel" class="form-control bg-light" required>
+                            <input type="tel" name="telefonoEmergencia" class="form-control bg-light" required>
                         </div>
                     </div>
                 </div>
@@ -126,11 +126,11 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Nombre Completo del Responsable</label>
-                            <input type="text" class="form-control bg-light" required>
+                            <input type="text" name="nombreTutor" class="form-control bg-light" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Vínculo con el alumno</label>
-                            <select class="form-select bg-light" required>
+                            <select name="vinculo" class="form-select bg-light" required>
                                 <option value="madre">Madre</option>
                                 <option value="padre">Padre</option>
                                 <option value="tutor_legal">Tutor Legal</option>
@@ -138,19 +138,19 @@
                         </div>
                         <div class="col-md-4">
                             <label class="form-label text-secondary fw-bold small">Edad</label>
-                            <input type="number" class="form-control bg-light" required>
+                            <input type="number" name="edadTutor" class="form-control bg-light" required>
                         </div>
                         <div class="col-md-8">
                             <label class="form-label text-secondary fw-bold small">CUIL / DNI</label>
-                            <input type="text" class="form-control bg-light" placeholder="Sin guiones" required>
+                            <input type="text" name="dniTutor" class="form-control bg-light" placeholder="Sin guiones" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Dirección / Domicilio (Si es distinto al alumno)</label>
-                            <input type="text" class="form-control bg-light">
+                            <input type="text" name="domicilioTutor" class="form-control bg-light">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary fw-bold small">Teléfono de Contacto Principal</label>
-                            <input type="tel" class="form-control bg-light" required>
+                            <input type="tel" name="telefonoTutor" class="form-control bg-light" required>
                         </div>
                     </div>
                 </div>
@@ -190,6 +190,56 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module">
+        import { db } from './js/firebase-config.js';
+        import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fd   = new FormData(e.target);
+            const data = Object.fromEntries(fd.entries());
+
+            const btn = e.target.querySelector('[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+
+            try {
+                await addDoc(collection(db, 'preinscripciones'), {
+                    alumno: {
+                        nombre:             data.nombreAlumno,
+                        nivel:              data.nivelIngresa,
+                        edad:               Number(data.edadAlumno),
+                        dni:                data.dniAlumno,
+                        tipoSangre:         data.tipoSangre,
+                        domicilio:          data.domicilioAlumno,
+                        telefonoEmergencia: data.telefonoEmergencia
+                    },
+                    tutor: {
+                        nombre:    data.nombreTutor,
+                        vinculo:   data.vinculo,
+                        edad:      Number(data.edadTutor),
+                        dni:       data.dniTutor,
+                        domicilio: data.domicilioTutor || null,
+                        telefono:  data.telefonoTutor
+                    },
+                    estado:   'pendiente',
+                    creadoEn: serverTimestamp()
+                });
+
+                alert('¡Preinscripción enviada con éxito! Nos comunicaremos a la brevedad para coordinar la visita presencial.');
+                e.target.reset();
+
+            } catch (err) {
+                console.error('Error al guardar preinscripción:', err);
+                alert('Error al enviar. Por favor intentá nuevamente.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Enviar Preinscripción';
+            }
+        });
+    </script>
 </body>
 </html>
 

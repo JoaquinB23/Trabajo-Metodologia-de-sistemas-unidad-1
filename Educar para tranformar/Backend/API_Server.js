@@ -280,17 +280,6 @@ app.post("/api/auth/logout", (req, res) => {
   ok(res, { mensaje: "Sesión cerrada correctamente" });
 });
 
-// Al hacer logout
-async function logout() {
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
-  await fetch("https://trabajo-metodologia-de-sistemas-unidad-1.onrender.com/api/auth/logout", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ dni: usuario.dni })
-  });
-  localStorage.removeItem("usuario");
-  window.location.href = "index.html";
-}
 // ─── 404 CATCH-ALL ──────────────────────────────────────────────────────────
 
 app.use((req, res) => fail(res, `Ruta no encontrada: ${req.method} ${req.path}`, 404));

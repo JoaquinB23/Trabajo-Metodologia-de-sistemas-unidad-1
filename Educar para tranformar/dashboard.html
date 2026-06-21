@@ -46,7 +46,7 @@
                         <img src="img/logo.png" width="32" class="rounded-circle border p-1" alt="Admin">
                         <span class="fw-bold small text-dark d-none d-sm-inline">Administración</span>
                     </div>
-                    <a href="index.html" class="btn btn-outline-danger btn-sm rounded-pill fw-bold ms-2">Cerrar Sesión</a>
+                    <button onclick="window.cerrarSesion()" class="btn btn-outline-danger btn-sm rounded-pill fw-bold ms-2">Cerrar Sesión</button>
                 </div>
             </nav>
 
@@ -163,6 +163,7 @@
     });
 </script>
 
+<script type="module" src="js/auth-guard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -169,41 +169,69 @@
         });
     </script>
 
-    <script>
+    <script type="module">
+        import { auth, db } from './js/firebase-config.js';
+        import { signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+        const MENSAJES_ERROR = {
+            'auth/invalid-credential': 'DNI o contraseña incorrectos.',
+            'auth/user-not-found':     'DNI o contraseña incorrectos.',
+            'auth/wrong-password':     'DNI o contraseña incorrectos.',
+            'auth/too-many-requests':  'Demasiados intentos fallidos. Esperá unos minutos.',
+            'auth/network-request-failed': 'Sin conexión a internet.'
+        };
+
         document.querySelector('form').addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const dni      = document.getElementById('usuario').value;
+            const dni      = document.getElementById('usuario').value.trim();
             const password = document.getElementById('password').value;
             const rol      = document.querySelector('input[name="userRole"]:checked').value;
             const nivel    = document.querySelector('input[name="userLevel"]:checked')?.value || null;
+            const email    = `${dni}@escuela.edu.ar`;
+            console.log('Intentando login con:', email, '| password length:', password.length);
+
+            const btn = document.querySelector('[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Ingresando...';
 
             try {
-                // CORREGIDO: Cambiamos la URL absoluta de localhost por la ruta relativa del servidor
-                const res = await fetch('/api/auth/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ dni, password, rol, nivel }),
-                });
+                const cred = await signInWithEmailAndPassword(auth, email, password);
 
-                const data = await res.json();
-
-                if (!data.ok) {
-                    alert(data.error || 'Credenciales inválidas');
+                // Leemos el perfil del usuario desde Firestore
+                const snap = await getDoc(doc(db, 'usuarios', cred.user.uid));
+                if (!snap.exists()) {
+                    alert('Perfil no encontrado. Contactá a administración.');
+                    await signOut(auth);
                     return;
                 }
 
-                // Guardamos el usuario en localStorage
-                localStorage.setItem('usuario', JSON.stringify(data.data.usuario));
+                const perfil = snap.data();
 
-                // Redirección según el rol
+                if (perfil.rol !== rol) {
+                    alert('El rol seleccionado no corresponde a este usuario.');
+                    await signOut(auth);
+                    return;
+                }
+                if (rol !== 'familia' && perfil.nivel !== nivel) {
+                    alert('El nivel seleccionado no corresponde a este usuario.');
+                    await signOut(auth);
+                    return;
+                }
+
+                localStorage.setItem('usuario', JSON.stringify({ uid: cred.user.uid, ...perfil }));
+
                 if (rol === 'alumno')  window.location.href = 'dashboard-alumno.html';
                 if (rol === 'docente') window.location.href = 'dashboard-docente.html';
                 if (rol === 'familia') window.location.href = 'dashboard-familia.html';
 
             } catch (err) {
+                alert(MENSAJES_ERROR[err.code] || 'Error al iniciar sesión.');
                 console.error(err);
-                alert('No se pudo conectar con el servidor');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Iniciar Sesión';
             }
         });
     </script>
